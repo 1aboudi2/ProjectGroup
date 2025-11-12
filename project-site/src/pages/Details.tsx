@@ -6,9 +6,15 @@ const Details = () => {
     content: { detailParagraphs },
   } = useContent()
 
+  const sessionTitles = [
+    '3 avril : Avant le départ',
+    '10 avril : Durant la mobilité',
+    '17 avril : Et après ?',
+  ]
+
   const accordionItems = detailParagraphs.map((paragraph, index) => ({
     id: `detail-${index}`,
-    title: `Session ${index + 1}`,
+    title: sessionTitles[index] || `Session ${index + 1}`,
     content: paragraph,
   }))
 

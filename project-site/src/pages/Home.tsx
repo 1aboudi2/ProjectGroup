@@ -12,13 +12,18 @@ const Home = () => {
       />
 
       <div className="mx-auto grid max-w-5xl gap-12 px-6 md:grid-cols-2 md:gap-16">
-        <section className="space-y-3">
+        <section className="space-y-3 md:col-span-2">
           <h2 className="text-lg font-semibold uppercase tracking-wide text-slate-400">
-            Qu'est-ce que le projet ?
+            Sessions
           </h2>
-          <p className="text-base leading-relaxed text-slate-200 md:text-lg">
-            {content.whatIsProject}
-          </p>
+          <div className="space-y-3 text-base leading-relaxed text-slate-200 md:text-lg">
+            <p>3 avril : Avant le départ 14h – 17h</p>
+            <p>10 avril : Durant la mobilité 14h – 17h</p>
+            <p>17 avril : Et après ? 14h – 17h</p>
+            <p className="mt-4 text-slate-300">
+              Salle I 107 (bâtiment Ionesco)
+            </p>
+          </div>
         </section>
 
         <section className="space-y-3">
@@ -27,33 +32,15 @@ const Home = () => {
           </h2>
           <div className="space-y-3 text-base leading-relaxed text-slate-200 md:text-lg">
             <p className="font-semibold underline">Notre équipe :</p>
-            <p>{content.whoIsDoingIt}</p>
-          </div>
-        </section>
-
-        <section className="space-y-3 md:col-span-2">
-          <h2 className="text-lg font-semibold uppercase tracking-wide text-slate-400">
-            Sessions
-          </h2>
-          <div className="space-y-4 text-base leading-relaxed text-slate-200 md:text-lg">
             <p>
-              <strong>3 avril : Avant le départ</strong> - 14h – 17h
-            </p>
-            <p>
-              <strong>10 avril : Durant la mobilité</strong> - 14h – 17h
-            </p>
-            <p>
-              <strong>17 avril : Et après ?</strong> - 14h – 17h
-            </p>
-            <p className="mt-4 text-slate-300">
-              Salle I 107 (bâtiment Ionesco)
+              Nous sommes 12 étudiants en Master Négociations de projets internationaux. Tous concernés de prêt ou de loin par la question de l'interculturalité. Certains d'entre nous viennent d'autres continents, d'autres ont réalisés leur stage ou une mobilité Erasmus à l'étranger. Nous sommes heureux de pouvoir vous accompagner dans votre projet, alors n'hésitez pas, venez nous rencontrer durant nos sessions au mois d'Avril. Nous pourrons discuter, vous rassurer, vous aider et vous faire vivre un moment enrichissant autour d'ateliers autour de l'interculturalité !
             </p>
           </div>
         </section>
 
-        <section className="space-y-3 md:col-span-2">
+        <section className="space-y-3">
           <h2 className="text-lg font-semibold uppercase tracking-wide text-slate-400">
-            Contact
+            Contact / Instagram / Mail
           </h2>
           <div className="space-y-3 text-base leading-relaxed text-slate-200 md:text-lg">
             <p>
@@ -71,7 +58,6 @@ const Home = () => {
                 ateliers.inter@outlook.fr
               </a>
             </p>
-            <p>Si vous avez des questions n'hésitez pas !</p>
           </div>
         </section>
       </div>
