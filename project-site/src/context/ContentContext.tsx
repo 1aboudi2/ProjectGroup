@@ -6,6 +6,7 @@ import {
   useMemo,
   useState,
 } from 'react'
+import { useLocation } from 'react-router-dom'
 
 export type SiteContent = {
   projectName: string
@@ -24,17 +25,17 @@ type ContentContextValue = {
 const STORAGE_KEY = 'siteContent'
 
 const defaultContent: SiteContent = {
-  projectName: 'Project Nebula',
+  projectName: "Atelier d'Interculturalité",
   whatIsProject:
-    'Project Nebula is a modular platform for prototyping immersive data stories with real-time collaboration.',
+    "Bienvenue sur le site du projet Atelier d'Interculturalité. Vous souhaitez réaliser une mobilité à l'étranger ? Préparer une année d'Erasmus, de stage ou même un voyage ? Vous voulez en apprendre davantage sur les différentes cultures et être accompagnés sur votre projet ? Les ateliers d'interculturalité sont faits pour vous !",
   whoIsDoingIt:
-    'A cross-functional trio of a product designer, a data storyteller, and a full-stack engineer are piloting the concept.',
+    "Nous sommes 12 étudiants en Master Négociations de projets internationaux. Tous concernés de prêt ou de loin par la question de l'interculturalité. Certains d'entre nous viennent d'autres continents, d'autres ont réalisés leur stage ou une mobilité Erasmus à l'étranger. Nous sommes heureux de pouvoir vous accompagner dans votre projet, alors n'hésitez pas, venez nous rencontrer durant nos sessions au mois d'Avril. Nous pourrons discuter, vous rassurer, vous aider et vous faire vivre un moment enrichissant autour d'ateliers autour de l'interculturalité !",
   extraInfo:
-    'This is an experimental build focused on rapid feedback. Expect weekly iterations and open design reviews.',
+    "Sessions : 3 avril : Avant le départ (14h – 17h) | 10 avril : Durant la mobilité (14h – 17h) | 17 avril : Et après ? (14h – 17h) - Salle I 107 (bâtiment Ionesco). Compte Instagram : (avec une image et le nom) - N'hésitez pas à consulter notre compte Instagram pour plus d'informations sur le projet mais également pour tout autre info concernant la mobilité. Mail : ateliers.inter@outlook.fr - Si vous avez des questions n'hésitez pas !",
   detailParagraphs: [
-    'The platform stitches together live dashboards, narrative copy, and spatial canvases to help teams communicate complex ideas faster.',
-    'We are testing the concept with a cohort of five design-forward teams working across climate and mobility domains.',
-    'Roadmap highlights include multiplayer editing, AI-assisted storyboarding, and publishing directly to the web.',
+    "3 avril : Avant le départ - 14h – 17h - Salle I 107 (bâtiment Ionesco)",
+    "10 avril : Durant la mobilité - 14h – 17h - Salle I 107 (bâtiment Ionesco)",
+    "17 avril : Et après ? - 14h – 17h - Salle I 107 (bâtiment Ionesco)",
   ],
 }
 
@@ -60,8 +61,11 @@ const normalizeContent = (raw?: Partial<SiteContent>): SiteContent => {
   }
 }
 
-const readStoredContent = (): SiteContent => {
+const readStoredContent = (useLocalStorage: boolean): SiteContent => {
   if (typeof window === 'undefined') return defaultContent
+  
+  // Only read from localStorage if useLocalStorage is true
+  if (!useLocalStorage) return defaultContent
 
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY)
@@ -79,15 +83,29 @@ export const ContentProvider = ({
 }: {
   children: React.ReactNode
 }) => {
-  const [content, setContent] = useState<SiteContent>(() => readStoredContent())
+  const location = useLocation()
+  const useLocalStorage = location.pathname.startsWith('/localestorage')
+  
+  const [content, setContent] = useState<SiteContent>(() => 
+    readStoredContent(useLocalStorage)
+  )
 
+  // Update content when route changes
   useEffect(() => {
-    try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(content))
-    } catch (error) {
-      console.warn('Failed to persist site content to localStorage', error)
+    const newContent = readStoredContent(useLocalStorage)
+    setContent(newContent)
+  }, [useLocalStorage])
+
+  // Only save to localStorage when on /localestorage routes
+  useEffect(() => {
+    if (useLocalStorage) {
+      try {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(content))
+      } catch (error) {
+        console.warn('Failed to persist site content to localStorage', error)
+      }
     }
-  }, [content])
+  }, [content, useLocalStorage])
 
   const updateContent = useCallback((next: SiteContent) => {
     setContent(normalizeContent(next))

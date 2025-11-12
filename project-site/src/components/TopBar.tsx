@@ -1,9 +1,9 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { useContent } from '../context/ContentContext'
 
 const navItems = [
-  { label: 'Home', to: '/' },
-  { label: 'Details', to: '/details' },
+  { label: 'Accueil', to: '/' },
+  { label: 'Détails', to: '/details' },
   { label: 'Admin', to: '/admin' },
 ]
 
@@ -11,6 +11,12 @@ const TopBar = () => {
   const {
     content: { projectName },
   } = useContent()
+  const location = useLocation()
+  const isLocalStorageRoute = location.pathname.startsWith('/localestorage')
+  
+  const getNavPath = (basePath: string) => {
+    return isLocalStorageRoute ? `/localestorage${basePath === '/' ? '' : basePath}` : basePath
+  }
 
   return (
     <header className="sticky top-0 z-30 border-b border-slate-800 bg-slate-950/90 backdrop-blur">
@@ -23,7 +29,7 @@ const TopBar = () => {
           {navItems.map((item) => (
             <NavLink
               key={item.to}
-              to={item.to}
+              to={getNavPath(item.to)}
               className={({ isActive }) =>
                 [
                   'transition-colors hover:text-slate-100',

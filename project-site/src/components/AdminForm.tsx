@@ -49,7 +49,7 @@ const AdminForm = ({
       <section className="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/80 p-6 shadow-xl md:p-8">
         <div className="space-y-2">
           <label htmlFor="projectName" className={labelStyles}>
-            Project name
+            Nom du projet
           </label>
           <input
             id="projectName"
@@ -57,13 +57,13 @@ const AdminForm = ({
             value={values.projectName}
             onChange={(event) => handleFieldChange('projectName', event.target.value)}
             className={inputStyles}
-            placeholder="Enter the project name"
+            placeholder="Entrez le nom du projet"
           />
         </div>
 
         <div className="space-y-2">
           <label htmlFor="whatIsProject" className={labelStyles}>
-            What is the project?
+            Qu'est-ce que le projet ?
           </label>
           <textarea
             id="whatIsProject"
@@ -71,13 +71,13 @@ const AdminForm = ({
             value={values.whatIsProject}
             onChange={(event) => handleFieldChange('whatIsProject', event.target.value)}
             className={`${inputStyles} min-h-[120px]`}
-            placeholder="Describe the project"
+            placeholder="Décrivez le projet"
           />
         </div>
 
         <div className="space-y-2">
           <label htmlFor="whoIsDoingIt" className={labelStyles}>
-            Who is doing it?
+            Équipe
           </label>
           <textarea
             id="whoIsDoingIt"
@@ -85,13 +85,13 @@ const AdminForm = ({
             value={values.whoIsDoingIt}
             onChange={(event) => handleFieldChange('whoIsDoingIt', event.target.value)}
             className={`${inputStyles} min-h-[100px]`}
-            placeholder="Introduce the team"
+            placeholder="Présentez l'équipe"
           />
         </div>
 
         <div className="space-y-2">
           <label htmlFor="extraInfo" className={labelStyles}>
-            Extra info
+            Informations supplémentaires
           </label>
           <textarea
             id="extraInfo"
@@ -99,17 +99,17 @@ const AdminForm = ({
             value={values.extraInfo}
             onChange={(event) => handleFieldChange('extraInfo', event.target.value)}
             className={`${inputStyles} min-h-[100px]`}
-            placeholder="Add any additional notes"
+            placeholder="Ajoutez des notes supplémentaires"
           />
         </div>
       </section>
 
       <section className="space-y-6 rounded-3xl border border-slate-800 bg-slate-900/80 p-6 shadow-xl md:p-8">
-        <h2 className="text-lg font-semibold text-slate-100">Detail paragraphs</h2>
+        <h2 className="text-lg font-semibold text-slate-100">Paragraphes de détails</h2>
         {values.detailParagraphs.map((paragraph, index) => (
           <div className="space-y-2" key={`detail-${index}`}>
             <label htmlFor={`detail-${index}`} className={labelStyles}>
-              Detail {index + 1}
+              Détail {index + 1}
             </label>
             <textarea
               id={`detail-${index}`}
@@ -117,7 +117,7 @@ const AdminForm = ({
               value={paragraph}
               onChange={(event) => handleDetailChange(index, event.target.value)}
               className={`${inputStyles} min-h-[120px]`}
-              placeholder={`Detail paragraph ${index + 1}`}
+              placeholder={`Paragraphe de détail ${index + 1}`}
             />
           </div>
         ))}
@@ -129,14 +129,14 @@ const AdminForm = ({
           onClick={onReset}
           className="rounded-xl border border-slate-700 px-5 py-3 text-sm font-medium text-slate-200 transition-colors hover:border-slate-500 hover:text-white"
         >
-          Reset to defaults
+          Réinitialiser
         </button>
         <button
           type="submit"
           className="rounded-xl bg-slate-100 px-6 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-white disabled:cursor-not-allowed disabled:bg-slate-700 disabled:text-slate-400"
           disabled={!isDirty}
         >
-          Save changes
+          Enregistrer les modifications
         </button>
       </div>
     </form>

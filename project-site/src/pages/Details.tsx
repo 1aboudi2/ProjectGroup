@@ -8,7 +8,7 @@ const Details = () => {
 
   const accordionItems = detailParagraphs.map((paragraph, index) => ({
     id: `detail-${index}`,
-    title: `Detail ${index + 1}`,
+    title: `Session ${index + 1}`,
     content: paragraph,
   }))
 
@@ -16,10 +16,10 @@ const Details = () => {
     <div className="mx-auto max-w-4xl space-y-10 px-6 pb-20">
       <header className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
-          Project Details
+          Sessions
         </h1>
         <p className="text-base text-slate-300 md:text-lg">
-          Tap any section to expand and dig deeper into the background, collaborators, and roadmap.
+          Cliquez sur une section pour développer et découvrir les détails de chaque session.
         </p>
       </header>
 

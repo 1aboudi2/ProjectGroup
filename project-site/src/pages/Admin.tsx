@@ -33,10 +33,10 @@ const Admin = () => {
     <div className="mx-auto max-w-5xl space-y-8 px-6 pb-20">
       <header className="space-y-2">
         <h1 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
-          Admin
+          Administration
         </h1>
         <p className="text-base text-slate-300 md:text-lg">
-          Update the copy for every page. Changes save locally in your browser, so they persist after refreshes.
+          Mettez à jour le contenu de chaque page. Les modifications sont enregistrées localement dans votre navigateur et persistent après les actualisations.
         </p>
       </header>
 
