@@ -2,11 +2,8 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useMemo,
-  useState,
 } from 'react'
-import { useLocation } from 'react-router-dom'
 
 export type SiteContent = {
   projectName: string
@@ -21,8 +18,6 @@ type ContentContextValue = {
   updateContent: (next: SiteContent) => void
   resetContent: () => void
 }
-
-const STORAGE_KEY = 'siteContent'
 
 const defaultContent: SiteContent = {
   projectName: "Atelier d'Interculturalité",
@@ -61,67 +56,29 @@ const normalizeContent = (raw?: Partial<SiteContent>): SiteContent => {
   }
 }
 
-const readStoredContent = (useLocalStorage: boolean): SiteContent => {
-  if (typeof window === 'undefined') return defaultContent
-  
-  // Only read from localStorage if useLocalStorage is true
-  if (!useLocalStorage) return defaultContent
-
-  try {
-    const stored = window.localStorage.getItem(STORAGE_KEY)
-    if (!stored) return defaultContent
-    const parsed = JSON.parse(stored) as Partial<SiteContent>
-    return normalizeContent(parsed)
-  } catch (error) {
-    console.warn('Failed to read site content from localStorage', error)
-    return defaultContent
-  }
-}
-
 export const ContentProvider = ({
   children,
 }: {
   children: React.ReactNode
 }) => {
-  const location = useLocation()
-  const useLocalStorage = location.pathname.startsWith('/localestorage')
-  
-  const [content, setContent] = useState<SiteContent>(() => 
-    readStoredContent(useLocalStorage)
-  )
-
-  // Update content when route changes
-  useEffect(() => {
-    const newContent = readStoredContent(useLocalStorage)
-    setContent(newContent)
-  }, [useLocalStorage])
-
-  // Only save to localStorage when on /localestorage routes
-  useEffect(() => {
-    if (useLocalStorage) {
-      try {
-        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(content))
-      } catch (error) {
-        console.warn('Failed to persist site content to localStorage', error)
-      }
-    }
-  }, [content, useLocalStorage])
-
   const updateContent = useCallback((next: SiteContent) => {
-    setContent(normalizeContent(next))
+    // Content is always default, so this is a no-op
+    // But we keep it for API compatibility
+    normalizeContent(next)
   }, [])
 
   const resetContent = useCallback(() => {
-    setContent(defaultContent)
+    // Content is always default, so this is a no-op
+    // But we keep it for API compatibility
   }, [])
 
   const value = useMemo<ContentContextValue>(
     () => ({
-      content,
+      content: defaultContent,
       updateContent,
       resetContent,
     }),
-    [content, resetContent, updateContent],
+    [resetContent, updateContent],
   )
 
   return (
