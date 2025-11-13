@@ -1,4 +1,4 @@
-# Project Nebula
+# Project Atelier d'Interculturalité
 
 A lightweight React + Vite site that showcases a project with editable content stored entirely in the browser. Use the included admin tools to tailor the copy without deploying a backend or database.
 

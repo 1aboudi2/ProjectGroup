@@ -1,0 +1,49 @@
+{
+  "heroImage": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80",
+  "collageImages": [
+    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1528607929212-9516a5f816f47?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1556761175-b3da8d37e5e5?auto=format&fit=crop&w=600&q=80"
+  ],
+  "sessionImages": {
+    "session1": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=80",
+    "session2": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80",
+    "session3": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1600&q=80"
+  },
+  "teamImage": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+  "travelImage": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=80",
+  "reasons": {
+    "heroImage": "Diverse group of international students in a workshop setting - perfect for hero banner as it shows the core of intercultural workshops with warm lighting and modern academic atmosphere",
+    "collageImages": [
+      "Diverse students studying together - represents collaboration and learning",
+      "Multicultural group discussion - core intercultural dialogue theme",
+      "International students with maps - connects to travel preparation and mobility",
+      "Active workshop session - energetic and engaging learning environment",
+      "People collaborating - warm teamwork atmosphere with natural lighting",
+      "Diverse team meeting - represents the 12-student Master team",
+      "Cultural exchange activity - learning about different cultures",
+      "Diverse individual - represents personal mobility stories and experiences",
+      "Interactive group activity - workshop engagement and participation",
+      "Team collaboration workspace - modern academic setting",
+      "International collaboration - cross-cultural teamwork",
+      "International meeting - professional yet friendly atmosphere"
+    ],
+    "sessionImages": {
+      "session1": "Passport and travel documents - represents 'Avant le départ' preparation phase",
+      "session2": "Students actively learning abroad - represents 'Durant la mobilité' experience phase",
+      "session3": "Reflection and sharing - represents 'Et après ?' post-mobility integration"
+    },
+    "teamImage": "Diverse team of students - represents the 12 Master students in International Project Negotiations",
+    "travelImage": "Travel preparation elements (passports, maps) - connects to mobility and travel preparation theme"
+  }
+}
+
