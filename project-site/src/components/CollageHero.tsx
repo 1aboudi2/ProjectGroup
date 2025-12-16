@@ -22,32 +22,56 @@ const collageImages = [
 
 const CollageHero = ({ title, description }: CollageHeroProps) => {
   return (
-    <section className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 shadow-2xl">
-      <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-[2px] md:grid-cols-6 md:grid-rows-2">
-        {collageImages.map((src, index) => (
-          <div
-            key={src}
-            className="h-full w-full border border-slate-900/40 bg-cover bg-center"
-            style={{ backgroundImage: `url(${src})` }}
-            aria-hidden
-          >
-            <span className="sr-only">Collage image {index + 1}</span>
+    <div className="mx-auto max-w-6xl">
+      {/* Welcome section - Bienvenue at top, text on left, square logo on right */}
+      <section className="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 shadow-2xl">
+        {/* Collage background */}
+        <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-[2px] md:grid-cols-6 md:grid-rows-2">
+          {collageImages.map((src, index) => (
+            <div
+              key={src}
+              className="h-full w-full border border-slate-900/40 bg-cover bg-center"
+              style={{ backgroundImage: `url(${src})` }}
+              aria-hidden
+            >
+              <span className="sr-only">Collage image {index + 1}</span>
+            </div>
+          ))}
+        </div>
+        <div className="absolute inset-0 bg-collage-overlay" aria-hidden />
+        
+        {/* Content on top */}
+        <div className="relative z-10">
+          {/* Bienvenue at the top center - bigger */}
+          <div className="pt-6 md:pt-8 text-center">
+            <span className="inline-block rounded-full border border-white/10 bg-white/10 px-6 py-2 text-sm md:text-base uppercase tracking-[0.3em] text-slate-200">
+              Bienvenue
+            </span>
           </div>
-        ))}
-      </div>
-      <div className="absolute inset-0 bg-collage-overlay" aria-hidden />
-      <div className="relative z-10 flex flex-col items-center gap-6 px-6 py-24 text-center md:py-32">
-        <span className="rounded-full border border-white/10 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.3em] text-slate-200">
-          Bienvenue
-        </span>
-        <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
-          {title}
-        </h1>
-        <p className="max-w-2xl text-base text-slate-200/80 md:text-lg">
-          {description}
-        </p>
-      </div>
-    </section>
+          
+          <div className="flex flex-col md:flex-row items-center md:items-stretch gap-6 md:gap-8 p-6 md:p-12">
+            {/* Text content on the left - title at top left, description below */}
+            <div className="flex-1 flex flex-col gap-6 text-center md:text-left">
+              <h1 className="text-2xl md:text-3xl font-semibold tracking-tight text-white">
+                {title}
+              </h1>
+              <p className="text-lg text-white md:text-xl leading-relaxed font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] mt-6">
+                {description}
+              </p>
+            </div>
+            
+            {/* Square logo on the right */}
+            <div className="flex-shrink-0 flex items-center justify-center">
+              <img 
+                src="/logo_AB.jpg" 
+                alt="Atelier Interculturalité Logo" 
+                className="w-56 h-56 md:w-80 md:h-80 object-contain rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   )
 }
 
